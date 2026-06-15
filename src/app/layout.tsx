@@ -62,14 +62,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} ${notoSerif.variable} ${hankenGrotesk.variable} ${spaceMono.variable} h-full antialiased scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} ${notoSerif.variable} ${hankenGrotesk.variable} ${spaceMono.variable} h-full antialiased scroll-smooth bg-[#FAFAFA] dark:bg-[#100F0F]`}
       suppressHydrationWarning
     >
       <body
         className="min-h-full flex flex-col bg-[#FAFAFA] dark:bg-[#100F0F] text-zinc-900 dark:text-zinc-300 font-sans selection:bg-zinc-200 dark:selection:bg-zinc-800 transition-colors duration-300"
         suppressHydrationWarning
       >
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <div className="flex flex-col items-center min-h-screen w-full">
             <Navbar />
             {children}

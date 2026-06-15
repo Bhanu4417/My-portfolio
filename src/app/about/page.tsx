@@ -23,12 +23,14 @@ export default function AboutPage() {
             {/* Top row: Image & Name */}
             <div className="flex items-center gap-5 sm:gap-8 animate-fade-in-up delay-200">
               {/* Left: Image */}
-              <div className="relative w-20 h-20 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden bg-zinc-200 dark:bg-zinc-800 shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+              <div className="relative w-20 h-20 sm:w-28 sm:h-28 shrink-0 rounded-2xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 shadow-[0_0_15px_rgba(0,0,0,0.05)] dark:shadow-[0_0_15px_rgba(255,255,255,0.05)]">
+                <div className="absolute inset-0 bg-zinc-200/80 dark:bg-zinc-800/80 animate-pulse"></div>
                 <Image
                   src="/Mr.png"
                   alt="Bhanu Nagar"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 640px) 80px, 112px"
+                  className="object-cover relative z-10"
                   priority
                 />
               </div>
