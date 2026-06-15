@@ -1,17 +1,19 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 // Using a module-level variable for SSR safety, but we'll override it with sessionStorage on the client
 let isBrowserLoaded = false;
 
 export default function ProfileImage({ src, alt, className, sizes, priority = false }: any) {
-  const [isLoaded, setIsLoaded] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    if (sessionStorage.getItem(`img-cache-${src}`)) return true;
-    return false;
-  });
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem(`img-cache-${src}`)) {
+      setIsLoaded(true);
+    }
+  }, [src]);
 
   return (
     <>
