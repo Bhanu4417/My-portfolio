@@ -60,20 +60,21 @@ export default function AboutPage() {
 
             {/* Bottom: Content Paragraphs */}
             <div 
-              className="flex flex-col gap-6 transition-colors duration-300 animate-fade-in-up delay-300 text-justify sm:text-left text-zinc-700 dark:text-[#d9d9d9]"
+              className="flex flex-col gap-6 transition-colors duration-300 animate-fade-in-up delay-300 text-justify text-zinc-700 dark:text-[#d9d9d9]"
               style={{ 
-                fontFamily: 'var(--font-inter), "Inter Fallback", sans-serif', 
+                fontFamily: 'var(--font-instrument-serif), serif', 
                 fontWeight: 400, 
                 fontStyle: 'normal',
-                fontSize: '15px',
-                lineHeight: '24px'
+                fontSize: '20px',
+                lineHeight: '1.4',
+                letterSpacing: '0.01em'
               }}
             >
               <p>
                 I am a Systems-Focused Full Stack Engineer specializing in the architecture of data-intensive products. I build end-to-end systems that synchronize complex data streams across diverse platform layers, pairing high-fidelity interfaces with robust backend logic.
               </p>
               <p>
-                My work is centered on the intersection of Real-Time Telemetry, Secure Infrastructure, and Distributed State. From engineering high-performance database aggregation pipelines to integrating secure global payment gateways, I prioritize data integrity and system scalability. I build products that don’t just function—they perform with precision and stand out through intentional, high-contrast design.
+                My work is centered on the intersection of Real-Time Telemetry, Secure Infrastructure, and Distributed State. From engineering high-performance database aggregation pipelines to integrating secure global payment gateways, I prioritize data integrity and system scalability. I build products that not only function, but perform with precision and stand out through intentional, high-contrast design.
               </p>
             </div>
 

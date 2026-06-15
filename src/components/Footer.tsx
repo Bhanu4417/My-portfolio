@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
+import Link from "next/link";
 import { SiGithub, SiX, SiThreads } from "react-icons/si";
 import { FiLinkedin } from "react-icons/fi";
 
@@ -19,7 +20,7 @@ export default function Footer() {
   const [roleIndex, setRoleIndex] = useState(0);
 
   const navigateLinks = [
-    "Home", "Projects", "Blog"
+    "Home", "About", "Projects", "Blog"
   ];
 
   const socialLinks = [
@@ -89,19 +90,34 @@ export default function Footer() {
               {navigateLinks.map((link) => {
                 let href = "#";
                 if (link === "Home") href = "/";
+                if (link === "About") href = "/about";
                 if (link === "Projects") href = "/work";
-                if (link === "Blog") href = "https://quest.wacheit.com";
+                if (link === "Blog") href = "https://wachequest.vercel.app/blogs";
                 
+                const isExternal = link === "Blog";
+
+                if (isExternal) {
+                  return (
+                    <a 
+                      key={link} 
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[13px] text-zinc-600 dark:text-[#909092] hover:text-zinc-900 dark:hover:text-white transition-colors"
+                    >
+                      {link}
+                    </a>
+                  );
+                }
+
                 return (
-                  <a 
+                  <Link 
                     key={link} 
                     href={href}
-                    target={link === "Blog" ? "_blank" : undefined}
-                    rel={link === "Blog" ? "noopener noreferrer" : undefined}
                     className="text-[13px] text-zinc-600 dark:text-[#909092] hover:text-zinc-900 dark:hover:text-white transition-colors"
                   >
                     {link}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
