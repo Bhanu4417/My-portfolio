@@ -54,15 +54,14 @@ export default function ContactSection() {
     <section id="contact" className="animate-fade-in-up delay-400 w-full max-w-3xl bg-[#FAFAFA] dark:bg-[#100F0F] px-2 sm:px-10 md:px-12 pt-10 sm:pt-16 pb-16 sm:pb-20 flex flex-col transition-colors duration-300">
       
       {/* Available for work badge */}
-      <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-[#0F2A1A] dark:bg-[#0F2A1A] w-fit mb-5 transition-colors duration-300">
+      <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg bg-green-100 dark:bg-[#0F2A1A] w-fit mb-5 transition-colors duration-300">
         <div className="relative flex h-2 w-2 items-center justify-center ml-0.5">
-          <span className="absolute inline-flex h-2.5 w-2.5 animate-ping rounded-full bg-[#34D399] opacity-60"></span>
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#34D399]"></span>
+          <span className="absolute inline-flex h-2.5 w-2.5 animate-ping rounded-full bg-green-500 dark:bg-[#34D399] opacity-60"></span>
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-green-600 dark:bg-[#34D399]"></span>
         </div>
-        <span style={{ 
+        <span className="text-green-800 dark:text-[#FAFAFA]" style={{ 
           fontFamily: 'var(--font-inter), "Inter Fallback", sans-serif',
           fontWeight: 500,
-          color: 'rgb(250, 250, 250)',
           fontSize: '13px',
           lineHeight: '18px',
           letterSpacing: '0.01em'
