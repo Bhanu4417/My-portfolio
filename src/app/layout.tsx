@@ -46,9 +46,6 @@ export const metadata: Metadata = {
     default: "Bhanu | Home",
   },
   description: "Bhanu's Portfolio",
-  icons: {
-    icon: "/Mr.png",
-  },
 };
 
 import Navbar from "@/components/Navbar";
@@ -62,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} ${notoSerif.variable} ${hankenGrotesk.variable} ${spaceMono.variable} h-full antialiased scroll-smooth bg-[#FAFAFA] dark:bg-[#100F0F]`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} ${inter.variable} ${notoSerif.variable} ${hankenGrotesk.variable} ${spaceMono.variable} h-full antialiased scroll-smooth dark bg-[#FAFAFA] dark:bg-[#100F0F]`}
       suppressHydrationWarning
     >
       <body

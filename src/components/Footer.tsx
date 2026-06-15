@@ -40,17 +40,17 @@ export default function Footer() {
   return (
     <footer className="w-full bg-zinc-100 dark:bg-[#161615] border-t border-zinc-200 dark:border-zinc-800/60 flex justify-center font-sans transition-colors duration-300" style={{ fontFamily: 'var(--font-hanken-grotesk), "Hanken Grotesk", sans-serif' }}>
       <div className="w-full max-w-3xl px-6 sm:px-10 md:px-12 pt-8 sm:pt-10 pb-8 sm:pb-10 flex flex-col md:flex-row justify-between gap-12 md:gap-8">
-        
+
         {/* Left Section */}
         <div className="flex flex-col justify-between h-full min-h-[120px] w-full md:w-1/2">
           {/* Image & Title & Role */}
           <div className="flex items-center gap-3.5">
             {/* Small Profile Image */}
             <div className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800/80 shrink-0 shadow-[0_0_10px_rgba(250,204,21,0.05)] transition-colors duration-300">
-              <Image 
-                src="/Mr.png" 
-                alt="Bhanu" 
-                fill 
+              <Image
+                src="/Mr.png"
+                alt="Bhanu"
+                fill
                 className="object-cover"
               />
             </div>
@@ -58,7 +58,7 @@ export default function Footer() {
             <div className="flex flex-col gap-0.5">
               <h2 className="text-[14px] font-semibold text-zinc-900 dark:text-zinc-200 tracking-wide transition-colors duration-300">Bhanu.</h2>
               <div className="h-[20px] overflow-hidden relative">
-                <div 
+                <div
                   className="flex flex-col transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateY(-${roleIndex * 20}px)` }}
                 >
@@ -81,20 +81,29 @@ export default function Footer() {
 
         {/* Right Section: Navigate & Connect */}
         <div className="flex flex-col gap-8 w-full md:w-auto md:justify-end">
-          
+
           {/* Navigate Block */}
           <div className="flex flex-col gap-3">
             <h3 className="text-[9.5px] font-semibold text-zinc-500 tracking-widest uppercase">Navigate</h3>
             <div className="flex flex-wrap gap-4">
-              {navigateLinks.map((link) => (
-                <a 
-                  key={link} 
-                  href="#" 
-                  className="text-[13px] text-zinc-600 dark:text-[#909092] hover:text-zinc-900 dark:hover:text-white transition-colors"
-                >
-                  {link}
-                </a>
-              ))}
+              {navigateLinks.map((link) => {
+                let href = "#";
+                if (link === "Home") href = "/";
+                if (link === "Projects") href = "/work";
+                if (link === "Blog") href = "https://quest.wacheit.com";
+                
+                return (
+                  <a 
+                    key={link} 
+                    href={href}
+                    target={link === "Blog" ? "_blank" : undefined}
+                    rel={link === "Blog" ? "noopener noreferrer" : undefined}
+                    className="text-[13px] text-zinc-600 dark:text-[#909092] hover:text-zinc-900 dark:hover:text-white transition-colors"
+                  >
+                    {link}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
@@ -103,9 +112,9 @@ export default function Footer() {
             <h3 className="text-[9.5px] font-semibold text-zinc-500 tracking-widest uppercase">Connect</h3>
             <div className="flex flex-wrap gap-2.5 w-fit">
               {socialLinks.map((social, idx) => (
-                <a 
-                  key={idx} 
-                  href={social.href} 
+                <a
+                  key={idx}
+                  href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-[10px] bg-white dark:bg-[#1D1D1C] border border-zinc-200 dark:border-zinc-800/80 text-zinc-500 dark:text-[#909092] hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-[#252524] transition-all hover:border-zinc-300 dark:hover:border-zinc-700 shadow-sm"

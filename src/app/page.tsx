@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ProfileImage from "../components/ProfileImage";
 import Link from "next/link";
 import { Suspense } from "react";
 import { FiGithub, FiLinkedin, FiTerminal } from "react-icons/fi";
@@ -75,14 +76,12 @@ export default function Home() {
           <div className="flex flex-col items-center w-max gap-2">
             {/* Profile Photo */}
             <div className="relative w-24 h-24 sm:w-32 sm:h-32 shrink-0 rounded-3xl overflow-hidden border-2 border-yellow-400/80 shadow-[0_0_20px_rgba(250,204,21,0.15)] bg-zinc-100 dark:bg-zinc-900">
-              <div className="absolute inset-0 bg-zinc-200/80 dark:bg-zinc-800/80 animate-pulse"></div>
-              <Image
+              <ProfileImage
                 src="/Mr.png"
                 alt="Bhanu"
-                fill
                 sizes="(max-width: 640px) 96px, 128px"
                 className="object-cover relative z-10"
-                priority
+                priority={true}
               />
             </div>
 

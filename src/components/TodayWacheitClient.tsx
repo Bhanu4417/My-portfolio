@@ -61,7 +61,7 @@ export default function TodayWacheitClient({ seconds, languages }: { seconds: nu
     <div className="relative" ref={containerRef}>
       <button 
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-[10px] border border-zinc-200 dark:border-zinc-800/80 bg-zinc-100 dark:bg-[#1D1D1C] shadow-sm transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-[#252524] outline-none"
+        className="flex items-center gap-2 px-3 py-1.5 rounded-[10px] border border-zinc-200 dark:border-zinc-800/80 bg-zinc-100 dark:bg-[#1D1D1C] shadow-sm transition-colors duration-300 hover:bg-zinc-200 dark:hover:bg-[#252524] outline-none cursor-pointer"
         title="Today's Coding Time"
       >
         <span className="relative flex h-2 w-2">
