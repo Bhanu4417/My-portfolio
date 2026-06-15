@@ -14,16 +14,27 @@ export default function ContactSection() {
     setErrorMessage("");
 
     const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get("name") as string,
-      email: formData.get("email") as string,
-      message: formData.get("message") as string,
-    };
+    const object = Object.fromEntries(formData);
+    
+    // Add the access key back to the payload directly in the browser
+    const json = JSON.stringify({
+      ...object,
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || ""
+    });
 
     try {
-      const result = await submitContactForm(data);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: json
+      });
 
-      if (result.success) {
+      const data = await response.json();
+
+      if (data.success) {
         setStatus("success");
         
         // Reset success message after 5 seconds
@@ -32,12 +43,12 @@ export default function ContactSection() {
         }, 5000);
       } else {
         setStatus("error");
-        setErrorMessage(result.message || "Something went wrong. Please try again.");
+        setErrorMessage(data.message || "Something went wrong. Please try again.");
       }
     } catch (error) {
       console.error("Form Error:", error);
       setStatus("error");
-      setErrorMessage("Network error. Please try again later.");
+      setErrorMessage("Network error. Please check your ad-blocker or try again later.");
     }
   };
 
