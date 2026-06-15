@@ -22,10 +22,21 @@ export async function submitContactForm(data: { name: string, email: string, mes
       }),
     });
 
-    const result = await response.json();
-    return result;
-  } catch (error) {
+    const responseText = await response.text();
+
+    if (!response.ok) {
+      console.error("Web3Forms API Error:", response.status, responseText);
+      return { success: false, message: `API Error ${response.status}: ${responseText}` };
+    }
+
+    try {
+      const result = JSON.parse(responseText);
+      return result;
+    } catch (e: any) {
+      return { success: false, message: `Failed to parse response: ${e.message}` };
+    }
+  } catch (error: any) {
     console.error("Server Action Error:", error);
-    return { success: false, message: "Failed to send message. Please try again later." };
+    return { success: false, message: `Server fetch error: ${error.message}` };
   }
 }
