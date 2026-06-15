@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-import { submitContactForm } from '../app/actions';
-
 export default function ContactSection() {
   const [status, setStatus] = React.useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = React.useState("");
